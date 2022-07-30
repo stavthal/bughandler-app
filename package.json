@@ -4,7 +4,8 @@
   "description": "A Bugtracker application that helps users keep track of bugs and their status (open,working on it and closed) to help out smoothing the production.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [
     "bug",
