@@ -1,0 +1,79 @@
+<%- include('partials/header.ejs'); %>
+
+<style>
+  #heading {
+    /* text-decoration: 2px underline; */
+    border: 4mm ridge rgb(58, 173, 23);
+    color: green;
+    text-align: center;
+    padding: 1rem;
+    background-color:rgb(255, 255, 255);
+    font-family: 'Montserrat' , sans-serif;
+    font-weight: 700;
+  }
+  #welcome-paragraph {
+    color: green;
+    margin-top: 2rem;
+    text-align: center;
+    padding: 0 3rem;
+
+  }
+</style>
+
+<h1 id="heading"> Welcome to BugHandler!</h1>
+
+<div class="table-responsive">
+<% if (bugs.length > 0) { %>
+
+  <p id="welcome-paragraph">Here you can list your bugs and set their corresponding status (Open,Under Work,Handled) in order to have a clearer view of your project's bugs and ease production
+    by not having to worry where your bugs are listed</p>
+  </p>
+<table class="table table-stripped table-hover ">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Bug</th>
+        <th scope="col">Text</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+    <% bugs.forEach(function(bug){ %>
+    <tr>
+        <td><a href="/bug/<%=bug._id%>"class="bug-id"><%= bug._id %></a></td>
+        <td><%= bug.title %></td>
+        <td><%= bug.body %></td>
+        <td><%= bug.status %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <% } else { %>
+    <h1 style="text-align:center; color: green;">Currently, there are no bugs listed</h1>
+    <p style="text-align: center; color: green">Get started by submiting a bug!</p>
+    <% } %>
+  </div>
+
+
+  <script>
+    /* a for loop for all the td elements which check if the innerHTML === Open, sets color to green, Under work, yellow and  === red; */
+
+    var td = document.querySelectorAll('td');
+
+    for (var i = 0; i < td.length; i++){
+        if (td[i].innerHTML === "Open") {
+            console.log(i + " has the Open in it");
+            td[i].style.color = 'red';
+        } else if (td[i].innerHTML === "Working on it") {
+            console.log(i + " is under work!");
+            td[i].style.color = '#DBE100';
+        } else if (td[i].innerHTML === "Handled") {
+            console.log (i + " is handled.");
+            td[i].style.color = 'green';
+        }
+    }
+  </script>
+
+  <p style="margin-top: 1rem; text-align:center"><a style="text-align: center" class="btn btn-lg btn-success" href="/bug-submit">Submit a bug!</a></p>
+<%- include('partials/footer.ejs'); %>

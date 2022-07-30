@@ -1,0 +1,233 @@
+* {
+ 
+  /* font-family: 'Montserrat' , sans-serif; */
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  color: green;
+} 
+
+html {
+  /* margin: 0;
+  padding: 0; */
+  height: 100%;
+  min-height: 100%;
+  /* saves the blank space on bottom of the screen */
+}
+
+body {
+  color: white;
+  /* background-color: rgb(255, 255, 255); */
+  
+  background-image: url("/assets/white-diamond-dark.png");
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  
+
+}
+
+
+/* Navbar */
+
+.navbar {
+  margin-bottom: 1.8rem;
+}
+
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+
+.navbar-brand {
+  color: #6f6f6f; 
+}
+
+
+.navbar-brand:hover {
+  color: #1abc22 !important;
+}
+
+
+
+
+
+
+.navbar-nav  li a:hover {
+  color: #1abc22 !important;
+}
+
+
+.navbar-brand {
+  margin-left: 1.2rem;
+}
+
+
+
+
+
+
+/* Responsiveness */
+
+@media only screen and (max-width: 600px) {
+
+
+}
+
+
+@media only screen and (max-width: 768px) {
+
+
+
+}
+
+
+@media only screen and (max-width: 992px) {
+
+
+
+}
+
+.heading {
+  display: flex;
+  font-family: 'Mochiy Pop One' , sans-serif;
+  margin: 0 2rem;
+ 
+}
+
+
+
+.link {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 0.8rem;
+  margin-right:0.8rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+
+}
+
+
+.container {
+  position: relative;
+  min-height: 76.8vh; /* was 100 */
+}
+
+
+
+/* Buttons */
+
+.btn {
+  background-color:rgb(63, 218, 16);
+  border: 1px solid transparent; /* so it doesnt move the button on hover */
+}
+
+.btn:hover {
+  background-color: white;
+  color: rgb(164, 255, 136);
+  border: solid 1px rgb(164, 255, 136);
+}
+
+
+.btn:active {
+  background-color: rgb(96, 151, 79);
+}
+
+
+
+/* Register page */
+#form {
+  
+}
+
+#reg-form {
+  
+}
+
+.register-form h1 {
+  text-align: center;
+}
+
+.register-form {
+  margin: 2rem 5rem;
+  padding: 1.2rem 5rem 3rem 5rem;
+  border: 4mm ridge rgb(58, 173, 23);
+  border-radius: 25px;
+  background-color: rgb(202, 255, 213);
+  background-image: url("/assets/always-grey.png");
+
+}
+
+
+#register-button {
+  margin-top: 1rem;
+  
+}
+
+
+
+
+
+
+/* Submit Page */
+
+.bug-form {
+  margin-top: 10rem;
+  padding: 1rem 3rem 1rem 3rem;
+  background-color: rgb(255, 255, 255);
+  /* border: 2px solid rgb(62, 230, 84); */
+  border: 4mm ridge rgb(58, 173, 23);
+  border-radius: 25px;
+  color : rgb(3, 138, 10);
+}
+
+
+
+
+
+/* Table with bugs */
+
+.bug-id {
+  color:rgb(67, 199, 26);
+}
+
+.bug-id:hover {
+  color: rgb(164, 255, 136);
+}
+
+.bug-id:active {
+  background-color: rgb(96, 151, 79);
+}
+
+.table {
+  margin-top: 5rem;
+  color: green;
+  border: 4mm ridge rgb(58, 173, 23);
+  background-color:rgb(255, 255, 255);
+}
+
+
+
+/* Footer */
+
+#footer {
+  position: relative;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0.18;
+  /*Height of the footer */
+  height:40px;
+  
+}
+
+
+
+

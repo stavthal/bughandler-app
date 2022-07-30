@@ -1,0 +1,182 @@
+<%- include('partials/header.ejs') %>
+
+
+<style>
+    .bug-div {
+        /* border: 2px rgb(62, 230, 84) solid; */
+        border: 4mm ridge rgb(58, 173, 23);
+        border-radius: 25px;
+        background-color: rgb(255, 255, 255);
+        color:rgb(62, 230, 84);
+        padding: 2rem;
+        margin-top: 5rem;
+        margin-left: 25%;
+        margin-right: 25%;
+        text-align: center;
+    }
+
+    hr {
+        height: 4px;
+        background-color:rgb(27, 204, 51);
+        border-radius: 25px;
+    }
+
+
+    .btn {
+        color: white;
+        margin-top: 1rem;
+        padding: 1rem;
+        margin-right: 1rem;
+    }
+
+
+    .container {
+        text-align: center;
+    }
+
+    #under-work {
+        background-color:rgb(219, 216, 12);
+    }
+
+    #under-work:hover {
+        background-color: white;
+        border: 1px solid rgb(219, 216, 12);
+        color: rgb(219, 216, 12);
+
+    }
+
+
+    #open {
+        background-color:rgb(219, 12, 12);
+    }
+
+    #open:hover {
+        background-color: white;
+        color: rgb(219, 12, 12);
+        border: 1px solid rgb(219, 12, 12);
+    }
+</style>
+
+<div class="container">
+
+<div class="bug-div">
+    <h4>BUG DETAILS</h4>
+    <hr>
+    <span class="h5">Bug name: </span>
+    <p><%=bug.title%></p>
+    <span class="h5">Bug details: </span>
+    <p><%=bug.body%></p>
+    <span class="h5">Bug status: </span>
+    <p id="status"><%=bug.status%></p>
+
+</div>
+
+
+<!-- using the below hrefs as get requests to request changes to be made to the database-->
+
+<a  id="open" class="btn btn-lg">Open</a>
+
+<a  id="under-work" class="btn btn-lg">Under work</a>
+
+
+<a id="handled" class="btn btn-lg">Handle</a>
+
+
+<p style="margin-top: 1.2rem;"><a id="home" class="btn btn-lg">
+    Home
+</a></p>
+<p style="margin-top: 1rem;"><a  id="delete" class="btn btn-lg">Delete this bug</a></p>
+
+</div>
+ 
+<script>
+    const statusElement = document.getElementById("status");
+
+    
+    if (statusElement.innerHTML === "Open") {
+        statusElement.style.color = 'red';
+    } else if (statusElement.innerHTML === "Handled") {
+        statusElement.style.color = 'green';
+    } else if (statusElement.innerHTML === "Working on it") {
+        statusElement.style.color = '#DBE100';
+    }
+
+    
+    const buttons = document.querySelectorAll(".btn");
+
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", handleClick);
+    }
+
+    
+    function handleClick() {
+  
+        const status = document.getElementById("status").innerHTML;
+        const clickedButton = this.id;
+
+
+        console.log(clickedButton);
+        
+        const prompt = "Are you sure you want to perform this action?";
+
+        const message = `The status is already set to ${status} ... `;
+        
+
+        if (clickedButton === "open") {
+            if (status === "Open") {
+                window.alert(message);
+            } else {
+                if (confirm(prompt)) {
+                    window.location.href = "/set-open/<%=bug._id%>"
+                } else {
+                    window.alert("Action not completed!");
+                }
+            }   
+        }
+
+        else if (clickedButton === "handled") {
+            if (status === "Handled") {
+                window.alert(message);  
+            } else {
+                if (confirm(prompt)) {
+                    window.location.href= "/set-handled/<%=bug._id%>";
+                } else {
+                    window.alert("Action not completed!");
+                }
+            }
+        }
+
+        else if (clickedButton === "under-work") {
+            if (status === "Working on it") {
+                window.alert(message);
+            } else {
+                if (confirm(prompt)) {
+                    window.location.href ="/set-under-work/<%=bug.id%>";
+                } else {
+                    window.alert("Action not completed!");
+                }
+            }
+        }
+
+
+        else if (clickedButton === "home") {
+            window.location.href = "/";
+        }
+
+        else if (clickedButton === "delete") {
+            if (confirm(prompt)) {
+                window.location.href = "/delete-bug/<%=bug._id%>";
+            }
+            
+        }
+    }
+
+     
+
+</script>
+
+
+
+
+
+<%- include('partials/footer.ejs') %>
