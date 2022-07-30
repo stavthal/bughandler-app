@@ -41,10 +41,21 @@
     
     <% bugs.forEach(function(bug){ %>
     <tr>
-        <td><a href="/bug/<%=bug._id%>"class="bug-id"><%= bug._id %></a></td>
-        <td><%= bug.title %></td>
-        <td><%= bug.body %></td>
-        <td><%= bug.status %></td>
+        <td><a href="/bug/<%=bug._id%>"class="bug-id"><%=bug._id.toString().slice(0,4)%></a></td>
+        
+        <% if (bug.title.length > 40) { %> 
+        <td><%=bug.title.slice(0,40) + "..." %></td>
+        <% } else { %>
+          <td><%=bug.title%></td>
+        <% } %>
+
+        <% if (bug.body.length > 40) { %>
+          <td><%=bug.body.slice(0,40) + "..." %></td> 
+        <% } else { %>
+          <td><%=bug.body%></td>
+        <% } %>
+        
+        <td><%=bug.status%></td>
       </tr>
       <% }) %>
     </tbody>
