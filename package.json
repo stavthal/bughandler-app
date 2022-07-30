@@ -1,6 +1,9 @@
 {
   "name": "project-bugtracker",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.14.2"
+  },
   "description": "A Bugtracker application that helps users keep track of bugs and their status (open,working on it and closed) to help out smoothing the production.",
   "main": "app.js",
   "scripts": {
